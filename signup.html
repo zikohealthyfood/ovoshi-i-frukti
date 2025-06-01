@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Регистрация | Корзинка</title>
+  <link rel="stylesheet" href="css/signup.css">
+  <link rel="icon" href="favicon_io/favicon-32x32.png" type="image/png">
+  <link rel="icon" href="favicon_io/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .error-message {
+      color: #dc3545;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f8d7da;
+      display: none;
+    }
+    .error-message.show {
+      display: block;
+    }
+    .spinner {
+      margin-left: 10px;
+      display: none;
+    }
+    .spinner.show {
+      display: inline-block;
+    }
+    .input-error {
+      border-color: #dc3545 !important;
+    }
+    .privacy-check.input-error label {
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="container">
+        <div class="contact-info">
+          <span><i class="fas fa-phone"></i> +7 996 107-35-09</span>
+          <span><i class="fas fa-map-marker-alt"></i> г. Уфа, ул. Лучистая 110</span>
+        </div>
+        <div class="auth-links">
+          <a href="register.html"><i class="fas fa-user"></i> Вход</a>
+        </div>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container">
+        <div class="logo">
+         
+          <h1><i class="fas fa-leaf"></i> Корзинка</h1>
+          <p>Натуральные продукты с доставкой</p>
+        </div>
+        <nav>
+          <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Главная</a>
+          <a href="cart.html" class="cart-link"><i class="fas fa-shopping-basket"></i> Корзина <span class="cart-count">0</span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="auth-container">
+        <h2 class="auth-title"><i class="fas fa-user-plus"></i> Создать аккаунт</h2>
+        
+        <form class="auth-form" id="registrationForm" method="GET">
+          <div class="error-message" id="errorMessage"></div>
+          
+          <div class="form-group">
+            <label for="name">ФИО*</label>
+            <input type="text" id="name" name="name" required placeholder="Иванов Иван Иванович">
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Телефон*</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Пароль*</label>
+            <input type="password" id="password" name="password" required placeholder="Не менее 6 символов" minlength="6">
+          </div>
+          
+          <div class="form-group">
+            <label for="password-confirm">Подтвердите пароль*</label>
+            <input type="password" id="password-confirm" name="password-confirm" required placeholder="Повторите пароль">
+          </div>
+          
+          <div class="form-group">
+            <label for="address">Адрес доставки</label>
+            <input type="text" id="address" name="address" placeholder="г. Уфа, ул. Примерная, д. 1">
+          </div>
+          
+          <div class="privacy-check">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy">Я согласен с <a href="privacy.html">политикой конфиденциальности</a> и обработкой персональных данных*</label>
+          </div>
+          
+          <div class="privacy-check">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Я хочу получать новости и специальные предложения</label>
+          </div>
+          
+          <button type="submit" id="submitBtn">
+            <i class="fas fa-user-plus"></i> Зарегистрироваться
+            <span class="spinner" id="spinner"><i class="fas fa-spinner fa-spin"></i></span>
+          </button>
+        </form>
+        
+        <div class="auth-links">
+          Уже есть аккаунт? <a href="register.html">Войти</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-column">
+        <h3><i class="fas fa-leaf"></i> Овощи & Фрукты</h3>
+        <p>Натуральные продукты с доставкой по Уфе</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-vk"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Меню</h3>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="season.html">Сезонные продукты</a></li>
+          <li><a href="recipes.html">Рецепты</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="privacy.html">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Контакты</h3>
+        <ul>
+          <li><i class="fas fa-phone"></i> +7 996 107-35-09</li>
+          <li><i class="fas fa-envelope"></i> qq6584881@gmail.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> г. Уфа, ул. Лучистая 110</li>
+          <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-21:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2015 Корзина. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Инициализация корзины
+      if (!localStorage.getItem('cart')) {
+        localStorage.setItem('cart', JSON.stringify([]));
+      }
+      updateCartCount();
+
+      // Маска для телефона
+      Inputmask("+7 (999) 999-99-99").mask(document.getElementById('phone'));
+
+      // Элементы формы
+      const form = document.getElementById('registrationForm');
+      const errorMessage = document.getElementById('errorMessage');
+      const submitBtn = document.getElementById('submitBtn');
+      const spinner = document.getElementById('spinner');
+
+      // Валидация паролей в реальном времени
+      document.getElementById('password-confirm').addEventListener('input', function() {
+        const password = document.getElementById('password').value;
+        if (this.value !== password) {
+          this.classList.add('input-error');
+          document.getElementById('password').classList.add('input-error');
+        } else {
+          this.classList.remove('input-error');
+          document.getElementById('password').classList.remove('input-error');
+        }
+      });
+
+      // Обработка отправки формы
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        spinner.classList.add('show');
+        errorMessage.classList.remove('show');
+        
+        // Сброс ошибок
+        document.querySelectorAll('.input-error').forEach(el => {
+          el.classList.remove('input-error');
+        });
+
+        // Валидация данных
+        const errors = validateForm();
+        if (errors.length > 0) {
+          showErrors(errors);
+          submitBtn.disabled = false;
+          spinner.classList.remove('show');
+          return;
+        }
+
+        м
+        // Сохраняем данные в localStorage
+        localStorage.setItem('userData', JSON.stringify(userData));
+        
+        // Перенаправляем на страницу профиля
+        window.location.href = 'profile.html';
+        
+        // В реальном проекте здесь должна быть отправка на сервер:
+        
+        try {
+          const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              ...userData,
+              password: document.getElementById('password').value,
+              newsletter: document.getElementById('newsletter').checked
+            })
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Ошибка регистрации');
+          }
+
+          const result = await response.json();
+          localStorage.setItem('userData', JSON.stringify(result.user));
+          window.location.href = 'profile.html';
+          
+        } catch (error) {
+          errorMessage.textContent = error.message;
+          errorMessage.classList.add('show');
+        } finally {
+          submitBtn.disabled = false;
+          spinner.classList.remove('show');
+        }
+        */
+      });
+
+      // Функция валидации формы
+      function validateForm() {
+        const errors = [];
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.replace(/\D/g, '');
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const passwordConfirm = document.getElementById('password-confirm').value;
+        const privacyChecked = document.getElementById('privacy').checked;
+
+        if (!name || name.length < 2) {
+          errors.push({ field: 'name', message: 'Введите корректное имя (минимум 2 символа)' });
+        }
+
+        if (phone.length !== 11) {
+          errors.push({ field: 'phone', message: 'Введите корректный номер телефона' });
+        }
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          errors.push({ field: 'email', message: 'Введите корректный email' });
+        }
+
+        if (password.length < 6) {
+          errors.push({ field: 'password', message: 'Пароль должен содержать минимум 6 символов' });
+        }
+
+        if (password !== passwordConfirm) {
+          errors.push({ 
+            field: 'password-confirm', 
+            message: 'Пароли не совпадают' 
+          });
+        }
+
+        if (!privacyChecked) {
+          errors.push({ 
+            field: 'privacy', 
+            message: 'Необходимо согласие с политикой конфиденциальности' 
+          });
+        }
+
+        return errors;
+      }
+
+      // Показать ошибки
+      function showErrors(errors) {
+        const errorMessages = errors.map(error => error.message);
+        errorMessage.textContent = errorMessages.join('. ');
+        errorMessage.classList.add('show');
+
+        errors.forEach(error => {
+          const field = document.getElementById(error.field);
+          if (field) {
+            field.classList.add('input-error');
+            if (error.field === 'privacy') {
+              field.parentElement.classList.add('input-error');
+            }
+          }
+        });
+      }
+
+      // Обновление счетчика корзины
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        document.querySelectorAll('.cart-count').forEach(el => {
+          el.textContent = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        });
+      }
+
+      // Синхронизация корзины между вкладками
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'cart') {
+          updateCartCount();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
